@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your shortened URL is ready.">
+    <title>Shortened Successfully</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Done ✓</h1>
+        <div class="box">
+            <p class="short"><a href="{{ short }}">{{ short }}</a></p>
+        </div>
+        <p style="color: #ccc; font-size: 14px;">
+            Original: {{ original[:50] }}{% if original|length > 50 %}...{% endif %}
+        </p>
+        <a href="/" class="back-link">← Shorten another</a>
+    </div>
+</body>
+</html>
