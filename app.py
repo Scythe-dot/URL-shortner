@@ -5,7 +5,6 @@ import string
 app = Flask(__name__, template_folder='.', static_url_path='', static_folder='.')
 
 # stores all urls, resets when server restarts
-# TODO: maybe add sqlite later
 urls = {}
 
 def generate_code():
@@ -23,7 +22,7 @@ def index():
 def shorten():
     original = request.form.get('url', '').strip()
 
-    # validation - keep it simple
+    
     if not original:
         return 'bruh, enter a url', 400
 
@@ -45,7 +44,6 @@ def go(code):
     if code not in urls:
         return 'not found', 404
 
-    # this is the whole point
     return redirect(urls[code], 302)
 
 
